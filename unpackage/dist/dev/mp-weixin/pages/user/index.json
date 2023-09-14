@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "用户中心",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "tabbar": "/components/tabbar/tabbar"
+  }
+}

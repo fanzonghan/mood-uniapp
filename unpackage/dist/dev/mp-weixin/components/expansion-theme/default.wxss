@@ -1,0 +1,7 @@
+/* uni.scss */
+.content_text {
+  letter-spacing: 3rpx;
+  color: #181518;
+  font-size: 30rpx;
+}
+

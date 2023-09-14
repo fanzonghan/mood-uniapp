@@ -15,6 +15,8 @@
 
 <style lang="scss">
 	@import "uview-ui/index.scss";
+	@import '@/static/css/normal.scss';
+
 	.example-info {
 		font-size: 14px;
 		color: #333;

@@ -1,0 +1,16 @@
+/* uni.scss */
+view.data-v-4eff50a7, scroll-view.data-v-4eff50a7, swiper-item.data-v-4eff50a7 {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.u-notice-bar.data-v-4eff50a7 {
+  overflow: hidden;
+  padding: 9px 12px;
+  flex: 1;
+}
+

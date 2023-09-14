@@ -1,0 +1,1 @@
+<view><default-expansion vue-id="05a17c19-1" particularsList="{{particularsList}}" scrollTop="{{scrollTop}}" data-event-opts="{{[['^trigger',[['trigger']]]]}}" bind:trigger="__e" bind:__l="__l"></default-expansion><view style="padding:20rpx 0;margin:10rpx 0;"><u-loadmore vue-id="05a17c19-2" color="#999999" status="{{status}}" bind:__l="__l"></u-loadmore></view></view>

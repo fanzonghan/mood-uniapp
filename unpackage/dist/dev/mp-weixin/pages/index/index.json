@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-swiper": "/node-modules/uview-ui/components/u-swiper/u-swiper",
+    "u-notice-bar": "/node-modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-tabs": "/node-modules/uview-ui/components/u-tabs/u-tabs",
+    "tabbar": "/components/tabbar/tabbar",
+    "default-expansion": "/components/expansion-theme/default",
+    "articlelist": "/pages/index/extend/list"
+  }
+}

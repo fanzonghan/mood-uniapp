@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-popup": "/node-modules/uview-ui/components/u-popup/u-popup",
+    "u-button": "/node-modules/uview-ui/components/u-button/u-button",
+    "u-header": "/node-modules/uview-ui/components/u-calendar/header",
+    "u-month": "/node-modules/uview-ui/components/u-calendar/month"
+  }
+}

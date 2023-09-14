@@ -5,20 +5,24 @@
 		</u-navbar>
 
 		<u--form labelPosition="left" :model="formData" :rules="rules" ref="form1">
-			<u-form-item label="心情" prop="intro" borderBottom ref="item3">
+			<u-form-item label="状态" prop="mood" borderBottom ref="item3">
 				<u-radio-group v-model="formData.mood" @change="groupChange" placement="row" class="radio-group">
 					<u-radio customStyle="18px" v-for="(item, index) in moodList" :key="index" :label="item.label"
 						:name="item.name">
-						<u--image :showLoading="true"
-							:src="item.src"
-							width="30px" height="30px"></u--image>{{item.label}}
+						<view @click="selectRadio(item.name)">
+							<u--image :showLoading="true" :src="item.src" width="30px"
+								height="30px"></u--image>{{item.label}}
+						</view>
 					</u-radio>
 				</u-radio-group>
 			</u-form-item>
 			<u-form-item label="内容" prop="intro" borderBottom ref="item3">
 				<u--textarea placeholder="不低于3个字" v-model="formData.intro" count></u--textarea>
 			</u-form-item>
-			<u-form-item label="权限" prop="intro" borderBottom ref="item3">
+			<u-form-item label="配图" prop="img" borderBottom ref="item3">
+				<addFile ref="adFile"></addFile>
+			</u-form-item>
+			<u-form-item label="权限" prop="visible" borderBottom ref="item3">
 				<u-radio-group v-model="formData.visible" @change="groupChange">
 					<u-radio activeColor="red" label="私密" name="1"></u-radio>
 					<u-radio activeColor="red" label="公开" name="2"></u-radio>
@@ -41,9 +45,11 @@
 
 <script>
 	import tabbar from "@/components/tabbar/tabbar.vue"
+	import addFile from "@/components/upload-imagesAndvideo/index.vue"
 	export default {
 		components: {
-			tabbar
+			tabbar,
+			addFile
 		},
 		data() {
 			return {
@@ -53,98 +59,103 @@
 					hotel: '',
 					visible: '1', // 1私密 2公开
 					mood: '1',
+					img: '',
 				},
 				rules: {},
 				showCalendar: false,
 				moodList: [{
 						"label": "快乐",
 						"name": "kuaile",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "满足",
 						"name": "manzu",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/愉快.png",
 					},
 					{
 						"label": "喜欢",
 						"name": "xihuan",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/爱你.png",
 					},
 					{
 						"label": "感激",
 						"name": "ganji",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/愉快.png",
 					},
 					{
 						"label": "兴奋",
 						"name": "xingfen",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/可爱.png",
 					},
 					{
 						"label": "安静",
 						"name": "anjing",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "惊讶",
 						"name": "jingya",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "紧张",
 						"name": "jinzhang",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "迷惑",
 						"name": "mihuo",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "生气",
 						"name": "shengqi",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "悲伤",
 						"name": "beishang",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "厌恶",
 						"name": "yane",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "疲劳",
 						"name": "pilao",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "情绪低落",
 						"name": "qingxudiluo",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "难过",
 						"name": "nanguo",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "焦虑",
 						"name": "jiaolv",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "恐慌",
 						"name": "konghuang",
-						"src": "https://gd-hbimg.huaban.com/68a7105d207dbb6430ba9c3103370140cfee4d899756-c5mLTm_fw236",
+						"src": "/static/img/bq/开心.png",
 					}
 				]
 			}
 		},
 		methods: {
+			//选择心情
+			selectRadio(name) {
+				this.formData.mood = name;
+			},
 			groupChange(n) {
 				console.log('groupChange', n);
 			},
@@ -157,6 +168,49 @@
 				this.showCalendar = false
 				this.$refs.form1.validateField('hotel')
 			},
+			//提交
+			submit() {
+				let a = this.$refs.adFile.getImages();
+				let formData = this.formData;
+				formData.img = a.join(',')
+				// if(fm == "" || fm == null || fm == undefined){
+				// 	return uni.showToast({
+				// 		title: '请上传封面',
+				// 		icon:'none',
+				// 		duration: 2000
+				// 	});
+				// }
+				if (formData.mood == "" || formData.mood == null) {
+					return uni.showToast({
+						title: '请选择心情状态',
+						icon: 'none',
+						duration: 2000
+					});
+				}
+				if (formData.intro == "" || formData.intro == null) {
+					return uni.showToast({
+						title: '请填写内容',
+						icon: 'none',
+						duration: 2000
+					});
+				}
+				if (formData.visible == "" || formData.visible == null) {
+					return uni.showToast({
+						title: '请选择隐私权限',
+						icon: 'none',
+						duration: 2000
+					});
+				}
+				if (formData.hotel == "" || formData.hotel == null) {
+					return uni.showToast({
+						title: '请选择日期',
+						icon: 'none',
+						duration: 2000
+					});
+				}
+				
+				console.log(formData)
+			}
 		}
 	}
 </script>

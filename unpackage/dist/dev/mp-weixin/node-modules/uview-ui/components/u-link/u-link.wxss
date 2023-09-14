@@ -1,0 +1,18 @@
+/* uni.scss */
+view.data-v-8a7be032, scroll-view.data-v-8a7be032, swiper-item.data-v-8a7be032 {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.u-link.data-v-8a7be032 {
+  line-height: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+}
+

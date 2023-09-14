@@ -1,5 +1,5 @@
 module.exports = {
-	HTTP_REQUEST_URL: `http://192.168.77.18`,
+	HTTP_REQUEST_URL: `http://192.168.77.10:8007`,
 	// HTTP_REQUEST_URL: window.location.protocol + "//" + window.location.host,
 	HEADER: {
 		'content-type': 'application/json',

@@ -1,0 +1,16 @@
+/* uni.scss */
+.main {
+  padding: 30rpx;
+  background-color: #fff;
+}
+.u-radio {
+  margin-right: 30rpx;
+}
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.u-radio {
+  padding: 10rpx;
+}
+

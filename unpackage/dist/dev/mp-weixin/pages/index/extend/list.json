@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-loadmore": "/node-modules/uview-ui/components/u-loadmore/u-loadmore",
+    "default-expansion": "/components/expansion-theme/default"
+  }
+}

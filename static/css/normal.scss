@@ -1,0 +1,283 @@
+/*常见样式, 对于uview的内置样式的不足的补全以及通用样式的补充*/
+/*背景*/
+.bg{
+	&-white{
+		background: #FFFFFF;
+	}
+	&-black{
+		background: #000000;
+	}
+	&-blue{
+		background: #3c9cff;
+	}
+	&-004F9C{
+		background: #004F9C;
+	}
+	&-F5F5F5{
+		background: #F5F5F5;
+	}
+	&-F7F7F7{
+		background: #F7F7F7;
+	}
+}
+/*字体颜色*/
+.color{
+	&-blue{
+		color: #3c9cff;
+	}
+	&-000000{ //黑
+		color: #000000;
+	}
+	&-333333{ // 字体淡黑
+		color: #333333;
+	}
+	&-ffffff{ // 白色
+		color: #FFFFFF;
+	}
+	&-999999{ // 灰色
+		color: #999999;
+	}
+	&-red{//价格红
+		color: #E50213;
+	}
+}
+.w-100{
+	width: 100%;
+}
+/*系统状态栏高度*/
+.system-height{
+	height: var(--status-bar-height);
+}
+/* 圆角大小例：radius-1 ,radius-10... */
+@for $i from 1 through 100 {
+  .radius-#{$i} {  border-radius: $i*1rpx;}
+}
+/* 自体加粗例：weight-100 ,weight-600... */
+@for $i from 1 through 9 {
+  .weight-#{$i*100} {  font-weight: $i*100;}
+}
+/* 自体加粗例：weight-50 ,weight-550...*/
+@for $i from 1 through 9 {
+  .weight-#{$i*100 + 50} {  font-weight: 50 + $i*100;}
+}
+.weight-bold{
+	font-weight: bold;
+}
+.border-bottom {
+  border-bottom: 1rpx solid rgba($color: #707070, $alpha: 0.12);
+}
+
+/* flex 布局 */
+.flex{
+	/* #ifndef APP-PLUS-NVUE */
+	display:flex;
+	/* #endif */
+	flex-direction:row;
+}
+.flex-row{ flex-direction:row!important; }
+.flex-column{ flex-direction:column!important; }
+.flex-row-reverse{ flex-direction:row-reverse!important; }
+.flex-column-reverse{ flex-direction:column-reverse!important; }
+.flex-wrap{ flex-wrap:wrap;}
+.flex-nowrap{ flex-wrap:nowrap;}
+.justify-start{justify-content:flex-start;}
+.justify-end{justify-content:flex-end;}
+.justify-between{justify-content:space-between;}
+/* #ifndef APP-NVUE */
+.justify-evenly {justify-content: space-evenly;} 
+/* #endif */
+.justify-center{justify-content:center;}
+.align-center{ align-items: center; }
+.align-stretch{ align-items: stretch; }
+.align-start{ align-items: flex-start; }
+.align-end{ align-items: flex-end; }
+/* #ifndef APP-NVUE */
+.content-start {align-content: flex-start;}
+.content-end {align-content: flex-end;}
+.content-center {align-content: center;}
+.content-between {align-content: space-between;}
+.content-around {align-content: space-around;}
+.content-stretch {align-content: stretch;}
+/* #endif */
+.flex-1{ flex: 1; }
+.flex-2{ flex: 2; }
+.flex-3{ flex: 3; }
+.flex-4{ flex: 4; }
+.flex-5{ flex: 5; }
+/* #ifndef APP-PLUS-NVUE */
+.flex-shrink{ flex-shrink: 0; }
+/* #endif */
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.p-x-#{$i} {
+			padding-left: $i + rpx!important;
+			padding-right: $i + rpx!important;
+		}
+		.p-y-#{$i} {
+			padding-top: $i + rpx!important;
+			padding-bottom: $i + rpx!important;
+		}
+		.m-x-#{$i} {
+			margin-left: $i + rpx!important;
+			margin-right: $i + rpx!important;
+		}
+		.m-y-#{$i} {
+			margin-top: $i + rpx!important;
+			margin-bottom: $i + rpx!important;
+		} 
+		.m-#{$i} {
+			margin-left: $i + rpx!important;
+			margin-right: $i + rpx!important;
+			margin-top: $i + rpx!important;
+			margin-bottom: $i + rpx!important;
+		}
+		.p-#{$i} {
+			padding-left: $i + rpx!important;
+			padding-right: $i + rpx!important;
+			padding-top: $i + rpx!important;
+			padding-bottom: $i + rpx!important
+		}
+		.m-l-#{$i} { margin-left: $i + rpx!important; }
+		.m-t-#{$i} { margin-top: $i + rpx!important; }
+		.m-r-#{$i} { margin-right: $i + rpx!important; }
+		.m-b-#{$i} { margin-bottom: $i + rpx!important; }
+		.p-l-#{$i} { padding-left: $i + rpx!important; }
+		.p-t-#{$i} { padding-top: $i + rpx!important; }
+		.p-r-#{$i} { padding-right: $i + rpx!important; }
+		.p-b-#{$i} { padding-bottom: $i + rpx!important; }
+	}
+}
+/* #ifndef APP-PLUS-NVUE */
+.m-auto{ margin: auto; }
+/* #endif */
+
+// 定义字体大小
+@for $i from 9 to 20 {
+	.font-#{$i} { font-size: $i + rpx; }
+}
+
+// 定义字体(rpx)单位，大于或等于20的都为rpx单位字体
+@for $i from 20 through 80 {
+	.font-#{$i} { font-size: $i + rpx; }
+}
+// 圆角
+@for $i from 4 through 60 {
+	.radius-#{$i} { border-radius: $i + rpx; }
+}
+/* #ifndef APP-NVUE */
+.radius-c { border-radius: 50%;}
+/* #endif */
+
+/* #ifndef APP-NVUE */
+.ls { letter-spacing: 5rpx; }
+.ls-1 { letter-spacing: 10rpx; }
+.ls-2 { letter-spacing: 20rpx; }
+.ls-3 { letter-spacing: 30rpx; }
+.ls-4 { letter-spacing: 40rpx; }
+.ls-7 { letter-spacing: 70rpx; }
+/* #endif */
+
+/* 内容溢出 */
+.overflow-hidden { overflow: hidden;}
+
+/* 文字缩进 */
+/* #ifndef APP-PLUS-NVUE */
+.text-indent{text-indent:2;}
+/* #endif */
+/* 文字划线 */
+.text-through{text-decoration:line-through;}
+/* 文字对齐 */
+.text-left { text-align: left;}
+.text-right { text-align: right;}
+.text-center { text-align: center;}
+/* 文字换行溢出处理 */
+.text-ellipsis {
+	/* #ifndef APP-PLUS-NVUE */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/* #endif */ 
+	/* #ifdef APP-PLUS-NVUE */
+	lines: 1;
+	text-overflow: ellipsis;
+	/* #endif */
+}
+/* #ifdef APP-NVUE */
+.text-ellipsis-2 {
+  lines: 2;
+  text-overflow:ellipsis;
+}
+/* #endif */
+ /* #ifndef APP-PLUS-NVUE */
+.text-ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //多行在这里修改数字即可
+  overflow: hidden;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
+/* #endif */
+
+// 边框 
+.border {
+	border-width: 0.5px;
+	border-style: solid;
+	border-color: #dee2e6;
+}
+.border-top {
+  border-top-width: 0.5px;
+  border-top-style: solid;
+  border-top-color: #dee2e6;
+}
+.border-right {
+  border-right-width: 0.5px;
+  border-right-style: solid;
+  border-right-color: #dee2e6;
+}
+.border-bottom {
+  border-bottom-width: 0.5px;
+  border-bottom-style: solid;
+  border-bottom-color: #dee2e6;
+}
+.border-left {
+  border-left-width: 0.5px;
+  border-left-style: solid;
+  border-left-color: #dee2e6;
+}
+
+/* 定位 */
+.position-relative { position: relative;}
+.position-absolute { position: absolute;}
+.position-fixed { position: fixed;}
+/* 定位 - 固定顶部 */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+/* 定位 - 固定底部 */
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+}
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.float-left{ float: left; }
+.float-right{ float: right; }
+.clear-both{ clear: both; }
+.status-bar { height: var(--status-bar-height); }
+
+.inline-block{ display: inline-block; }

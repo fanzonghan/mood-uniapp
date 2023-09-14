@@ -1,0 +1,19 @@
+{
+  "navigationBarTitleText": "发表",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/node-modules/uview-ui/components/u-navbar/u-navbar",
+    "u--form": "/node-modules/uview-ui/components/u--form/u--form",
+    "u-form-item": "/node-modules/uview-ui/components/u-form-item/u-form-item",
+    "u-radio-group": "/node-modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/node-modules/uview-ui/components/u-radio/u-radio",
+    "u--image": "/node-modules/uview-ui/components/u--image/u--image",
+    "u--textarea": "/node-modules/uview-ui/components/u--textarea/u--textarea",
+    "u--input": "/node-modules/uview-ui/components/u--input/u--input",
+    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
+    "u-button": "/node-modules/uview-ui/components/u-button/u-button",
+    "u-calendar": "/node-modules/uview-ui/components/u-calendar/u-calendar",
+    "tabbar": "/components/tabbar/tabbar",
+    "add-file": "/components/upload-imagesAndvideo/index"
+  }
+}

@@ -1,0 +1,5 @@
+/* uni.scss */
+page {
+  background-color: #F7F8FA;
+}
+

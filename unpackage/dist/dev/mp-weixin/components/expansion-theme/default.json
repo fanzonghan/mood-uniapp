@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "u-avatar": "/node-modules/uview-ui/components/u-avatar/u-avatar",
+    "u-tag": "/node-modules/uview-ui/components/u-tag/u-tag",
+    "u-grid": "/node-modules/uview-ui/components/u-grid/u-grid",
+    "u-grid-item": "/node-modules/uview-ui/components/u-grid-item/u-grid-item"
+  },
+  "component": true
+}
