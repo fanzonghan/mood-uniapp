@@ -1,8 +1,8 @@
 <template>
 	<view class="main">
-		<u-navbar title="发表" :safeAreaInsetTop="false" :placeholder="true">
+		<!-- 		<u-navbar title="发表" :safeAreaInsetTop="false" :placeholder="true">
 			<view class="u-nav-slot" slot="left"></view>
-		</u-navbar>
+		</u-navbar> -->
 
 		<u--form labelPosition="left" :model="formData" :rules="rules" ref="form1">
 			<u-form-item label="状态" prop="mood" borderBottom ref="item3">
@@ -46,6 +46,9 @@
 <script>
 	import tabbar from "@/components/tabbar/tabbar.vue"
 	import addFile from "@/components/upload-imagesAndvideo/index.vue"
+	import {
+		addArticle
+	} from "@/api/api.js"
 	export default {
 		components: {
 			tabbar,
@@ -64,90 +67,70 @@
 				rules: {},
 				showCalendar: false,
 				moodList: [{
-						"label": "快乐",
+						"label": "开心",
 						"name": "kuaile",
 						"src": "/static/img/bq/开心.png",
 					},
 					{
 						"label": "满足",
 						"name": "manzu",
-						"src": "/static/img/bq/愉快.png",
+						"src": "/static/img/bq/满足.png",
 					},
 					{
 						"label": "喜欢",
 						"name": "xihuan",
-						"src": "/static/img/bq/爱你.png",
+						"src": "/static/img/bq/喜欢.png",
 					},
 					{
 						"label": "感激",
 						"name": "ganji",
-						"src": "/static/img/bq/愉快.png",
-					},
-					{
-						"label": "兴奋",
-						"name": "xingfen",
-						"src": "/static/img/bq/可爱.png",
-					},
-					{
-						"label": "安静",
-						"name": "anjing",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/感谢.png",
 					},
 					{
 						"label": "惊讶",
 						"name": "jingya",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/惊讶.png",
 					},
 					{
 						"label": "紧张",
 						"name": "jinzhang",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/紧张.png",
 					},
 					{
 						"label": "迷惑",
 						"name": "mihuo",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/迷惑.png",
 					},
 					{
 						"label": "生气",
 						"name": "shengqi",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/生气.png",
 					},
 					{
 						"label": "悲伤",
 						"name": "beishang",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/哭.png",
 					},
 					{
 						"label": "厌恶",
 						"name": "yane",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/鄙视.png",
 					},
 					{
 						"label": "疲劳",
 						"name": "pilao",
-						"src": "/static/img/bq/开心.png",
-					},
-					{
-						"label": "情绪低落",
-						"name": "qingxudiluo",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/疲惫.png",
 					},
 					{
 						"label": "难过",
 						"name": "nanguo",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/哭.png",
 					},
 					{
 						"label": "焦虑",
 						"name": "jiaolv",
-						"src": "/static/img/bq/开心.png",
+						"src": "/static/img/bq/焦虑.png",
 					},
-					{
-						"label": "恐慌",
-						"name": "konghuang",
-						"src": "/static/img/bq/开心.png",
-					}
 				]
 			}
 		},
@@ -208,8 +191,11 @@
 						duration: 2000
 					});
 				}
-				
 				console.log(formData)
+				addArticle(formData).then(res => {
+
+				})
+				// uni.navigateBack();
 			}
 		}
 	}

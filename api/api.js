@@ -4,7 +4,11 @@ import request from "@/utils/request.js";
  *
  */
 export function getIndexData() {
-	return request.get("v1/index", {}, {
+	return request.get("index", {}, {
 		noAuth: true
 	});
+}
+
+export function addArticle(data){
+	return request.post("article/add", data);
 }

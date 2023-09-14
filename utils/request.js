@@ -27,8 +27,10 @@ function baseRequest(url, method, data, {
 
 	if (!noAuth) {
 		if (!store.state.app.token) {
-			return Promise.reject({
-				msg: "未登录"
+			return uni.showToast({
+				title: '未登录',
+				icon: 'none',
+				duration: 2000
 			});
 		}
 	}
